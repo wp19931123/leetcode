@@ -6,10 +6,27 @@ package cn.leetcode.middle;
 public class LongestPalindrome {
 
     public String longestPalindrome(String s) {
-        
+        String res = null;
+        int max = 0;
+        for(int i = 0;i < s.length();i++) {
 
-        return null;
+        }
+
+        return res;
     }
+
+//    public String getPalindrome(String s,int i) {
+//        int l = i-1;
+//        int r = i+1;
+//        while(l >= 0 && r < s.length()) {
+//            if(s.charAt(l) != s.charAt(r)) {
+//                return s.substring(l+1,r-1);
+//            }
+//            l++;
+//            r--;
+//        }
+//        return s;
+//    }
 
     public boolean isPalindrome(String str) {
         int l = 0;
