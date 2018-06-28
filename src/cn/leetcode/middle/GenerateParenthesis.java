@@ -1,5 +1,6 @@
 package cn.leetcode.middle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,8 +9,27 @@ import java.util.List;
 public class GenerateParenthesis {
 
     public List<String> generateParenthesis(int n) {
-        
+        ArrayList<String> res = new ArrayList<>();
+        if (n == 0) {
+            return res;
+        }
+        dfs(0, 0, "", res, n);
 
-        return null;
+        return res;
+    }
+
+    private void dfs(int left, int right, String buffer, ArrayList<String> strings, int n) {
+        if (left == n && right == n) {
+            strings.add(buffer);
+            return;
+        }
+
+        if (left < n) {
+            dfs(left + 1, right, buffer + "(", strings, n);
+        }
+
+        if (left > right) {
+            dfs(left, right + 1, buffer + ")", strings, n);
+        }
     }
 }
