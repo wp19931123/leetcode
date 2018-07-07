@@ -44,7 +44,7 @@ public class CanJump {
             return false;
         }
         int len = nums.length;
-        int curMaxStep = nums[0];
+        int curMaxStep = nums[0];  //当前能够跳跃的最大位置
         for(int i = 1;i < len;i++) {
             if(curMaxStep >= len-1) {
                 return true;

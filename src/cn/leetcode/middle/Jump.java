@@ -8,6 +8,7 @@ import java.util.Arrays;
  */
 public class Jump {
 
+    //假设跳到数组第i(0≤i≤A.length−1)个位置，需要使用的最少次数为dp[i]
     public int jump(int[] A) {
         if (A == null) {
             return -1;

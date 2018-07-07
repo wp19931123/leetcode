@@ -18,6 +18,16 @@ public class GenerateParenthesis {
         return res;
     }
 
+    /**
+     * 如果左括号还能括就不断的画左括号，直到左括号的数量等于n。
+     * 接下来考虑右括号，因为对于一对括号，右括号不能出现在左括号前，所以当右括号数量小于左括号时，加上右括号。
+     * 当左右括号数量都等于n时，得到解。
+     * @param left
+     * @param right
+     * @param buffer
+     * @param strings
+     * @param n
+     */
     private void dfs(int left, int right, String buffer, ArrayList<String> strings, int n) {
         if (left == n && right == n) {
             strings.add(buffer);
