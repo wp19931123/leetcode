@@ -1,7 +1,5 @@
 package cn.leetcode.middle;
 
-import cn.leetcode.CombinationSum;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

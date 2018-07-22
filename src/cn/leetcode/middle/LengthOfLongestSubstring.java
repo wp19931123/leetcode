@@ -38,6 +38,7 @@ public class LengthOfLongestSubstring {
         return max;
     }
 
+    //滑动窗口的思路
     public int lengthOfLongestSubstring2(String s) {
         int maxLength = 0;
 

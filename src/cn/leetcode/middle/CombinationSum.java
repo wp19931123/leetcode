@@ -1,4 +1,4 @@
-package cn.leetcode;
+package cn.leetcode.middle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
