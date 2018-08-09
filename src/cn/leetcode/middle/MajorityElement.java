@@ -25,6 +25,7 @@ public class MajorityElement {
         List<Integer> res = new ArrayList<>();
 
         int m = 0, n = 0, cm = 0, cn = 0;
+        //第一次遍历得到两个最多的数字
         for (int a : nums) {
             if (a == m) {
                 ++cm;
@@ -41,6 +42,7 @@ public class MajorityElement {
                 --cn;
             }
         }
+        //第二次遍历计算这两个数各自出现的次数
         cm = cn = 0;
         for (int a : nums) {
             if (a == m) {
@@ -49,6 +51,7 @@ public class MajorityElement {
                 ++cn;
             }
         }
+        //验证是不是超过n/3
         if (cm > nums.length / 3) {
             res.add(m);
         }

@@ -20,10 +20,9 @@ public class PermuteUnique {
     List<List<Integer>> res;
     boolean[] used;
     public List<List<Integer>> permuteUnique(int[] nums) {
-        int len = nums.length;
         res = new LinkedList<>();
         used = new boolean[nums.length];
-        if (nums == null || len == 0) {
+        if (nums == null || nums.length == 0) {
             return res;
         }
         Arrays.sort(nums);
