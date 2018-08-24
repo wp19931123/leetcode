@@ -13,7 +13,6 @@ public class FindMedianSortedArrays {
      * 如果数组a的中位数小于数组b的中位数，那么整体的中位数只可能出现在a的右区间加上b的左区间之中；
      * 如果数组a的中位数大于等于数组b的中位数，那么整体的中位数只可能出现在a的左区间加上b的右区间之中。
      * 关键就是利用分治的思想逐渐缩小a的区间和b的区间来找到中位数。
-     *
      * @param nums1
      * @param nums2
      * @return

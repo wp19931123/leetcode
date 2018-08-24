@@ -9,7 +9,11 @@ import java.util.List;
 public class GenerateTrees {
 
     public static void main(String[] args){
-        System.out.println(new GenerateTrees().generateTrees(3));
+        List<TreeNode> res  = new GenerateTrees().generateTrees(3);
+        for(TreeNode t : res) {
+            TreeNode.print(t);
+            System.out.println("------------");
+        }
 
     }
     /**

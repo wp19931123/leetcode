@@ -11,10 +11,15 @@ import java.util.Map;
  * 输出: "acdb"
  */
 public class RemoveDuplicateLetters {
+
+    public static void main(String[] args) {
+        System.out.print(new RemoveDuplicateLetters().removeDuplicateLetters2("cbacdcbc"));
+    }
     /**
      * 先用哈希表记录每个字母出现的次数，再遍历给定字符串s，找出最小的字母，
      * 每比较一个字母，在哈希表中的值减1，如果此时为0了，则不继续遍历了，
      * 此时我们记录了一个位置，把字符串s中该位置左边的字符都删掉，右边的所有再出现的该字母也删掉，递归调用此函数
+     *
      * @param s
      * @return
      */
@@ -47,5 +52,31 @@ public class RemoveDuplicateLetters {
             }
             map.put(pre, map.get(pre) - 1);
         }
+    }
+
+    /**
+     * 贪心+递归。
+     * 首先是遍历递归统计每一个字符出现的次数，然后选择当前的最小的字符去做递归
+     * @param s
+     * @return
+     */
+    public String removeDuplicateLetters2(String s) {
+        if (s == null || s.length() <= 0)
+            return "";
+        int[] count = new int[26];
+        for (int i = 0; i < s.length(); i++)
+            count[s.charAt(i) - 'a']++;
+        int pos = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) < s.charAt(pos))
+                pos = i;
+            count[s.charAt(i) - 'a']--;
+            if (count[s.charAt(i) - 'a'] == 0)
+                break;
+        }
+//        System.out.println(s.charAt(pos) + "     " + s.substring(pos + 1).replace("" + s.charAt(pos), ""));
+        String res = s.charAt(pos) + removeDuplicateLetters(s.substring(pos + 1).replace("" + s.charAt(pos), ""));
+//        System.out.println(res);
+        return res;
     }
 }
