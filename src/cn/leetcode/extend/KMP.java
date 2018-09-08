@@ -1,5 +1,8 @@
 package cn.leetcode.extend;
 
+/**
+ * 在字符串s中找到一个等于t的子串
+ */
 public class KMP {
 
     public static int getIndexOf(String s, String t) {

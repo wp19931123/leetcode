@@ -70,7 +70,7 @@ public class Permute {
     public void helper(int[] nums, int i) {
         // 找到转置完成后的解，将其存入列表中
         if (i == nums.length - 1) {
-            List<Integer> list = new LinkedList<Integer>();
+            List<Integer> list = new LinkedList<>();
             for (int j = 0; j < nums.length; j++) {
                 list.add(nums[j]);
             }

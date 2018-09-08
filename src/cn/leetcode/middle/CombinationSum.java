@@ -32,7 +32,7 @@ public class CombinationSum {
             return;
         }
         if(target == 0) {
-            res.add(new ArrayList<Integer>(tmp));
+            res.add(new ArrayList<>(tmp));
             return;
         }
         for(int i = start;i < candidates.length;i++) {
@@ -57,7 +57,7 @@ public class CombinationSum {
         if (sum > target)
             return;
         if (sum == target) {
-            res.add(new ArrayList<Integer>(tmp));
+            res.add(new ArrayList<>(tmp));
             return;
         }
         for (int i = curIdx; i < candidates.length; i++) {

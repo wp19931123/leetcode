@@ -11,10 +11,13 @@ import java.util.Stack;
 public class LargestRectangleArea {
 
     public static void main(String[] args) {
-        int[] nums = {2,1,5,6,2,3};
-        System.out.print(new LargestRectangleArea().largestRectangleArea(nums));
+        int[] nums = {2, 1, 5, 6, 2, 3};
+        System.out.print(new LargestRectangleArea().largestRectangleArea2(nums));
     }
 
+    /**
+     * 单调栈解法，从每个位置开始向两边寻找第一个比自己小的数字
+     */
     public int largestRectangleArea(int[] heights) {
         int res = 0;
         Stack<Integer> s = new Stack<>();
@@ -33,5 +36,30 @@ public class LargestRectangleArea {
             }
         }
         return res;
+    }
+
+    public int largestRectangleArea2(int[] heights) {
+        if (heights == null || heights.length == 0) {
+            return 0;
+        }
+        int maxArea = 0;
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < heights.length; i++) {
+            while (!stack.isEmpty() && heights[i] <= heights[stack.peek()]) {
+                int j = stack.pop();  //i使得j弹出，j的右边界就是i
+                int k = stack.isEmpty() ? -1 : stack.peek(); //k是j的左边界
+                int curArea = (i - k - 1) * heights[j];
+                maxArea = Math.max(maxArea, curArea);
+            }
+            stack.push(i);  //i入栈，栈下面都是比i位置大的数字了，保持递增
+        }
+        //被动出栈，右边界就是数组右边界
+        while (!stack.isEmpty()) {
+            int j = stack.pop();
+            int k = stack.isEmpty() ? -1 : stack.peek(); //左边界
+            int curArea = (heights.length - k - 1) * heights[j];
+            maxArea = Math.max(maxArea, curArea);
+        }
+        return maxArea;
     }
 }

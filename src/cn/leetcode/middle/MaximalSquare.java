@@ -13,9 +13,10 @@ package cn.leetcode.middle;
 public class MaximalSquare {
 
     public static void main(String[] args) {
-        char[][] chs = {{'1','0','1','0','0'},{'1','0','1','1','1'},{'1','1','1','1','1'},{'1','0','0','1','0'}};
+        char[][] chs = {{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}};
         System.out.print(new MaximalSquare().maximalSquare(chs));
     }
+
     /**
      * 动态规划的思路：
      * 考虑以某点为正方形的右下角时最大的正方形，该点为右下角的正方形的最大边长，
@@ -52,14 +53,6 @@ public class MaximalSquare {
                 max = Math.max(max, dp[i][j]);
             }
         }
-//        for (int i = 0; i < row - 1; i++) {
-//            for (int j = 0; j < colum - 1; j++) {
-//                if (matrix[i][j] == 1) {
-//                    findSquare(matrix, row, colum, i, j, max) {
-//                    }
-//                }
-//            }
-//        }
         return max * max;
     }
 }
